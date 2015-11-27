@@ -5,6 +5,7 @@
 #define analogIn 3 // Pin 4 is also an analog input pin.
 
 int inputVoltage = 5.0;
+double voltage, prevVoltage;
 
 SoftwareSerial SoftSerial(rxPin, txPin);
 
@@ -18,11 +19,12 @@ void setup() {
 }
 
 void loop() {
-  double voltage;
   int analogVal = analogRead(analogIn);
   voltage = (inputVoltage * analogVal) / 1024.0;
-  SoftSerial.println(analogVal);
-  SoftSerial.print(voltage);
-  SoftSerial.println(" V");
+  if (voltage != prevVoltage){
+    SoftSerial.print(voltage);
+    SoftSerial.println(" V");
+    prevVoltage = voltage;
+  }
   delay(250);
 }

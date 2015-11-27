@@ -22,6 +22,5 @@ void loop() {
   SoftSerial.print(_time);
   SoftSerial.print(" milliseconds");
   SoftSerial.println();
-  char c = SoftSerial.read();
   delay(1000);
 }
