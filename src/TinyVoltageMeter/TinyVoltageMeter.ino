@@ -22,18 +22,21 @@ void setup() {
   SoftSerial.begin(9600);
   SoftSerial.println("Starting TinyVoltageMeter");
 
-  SoftSerial.println("Printing EEPROM");
-  for (int address = 0; address < EEPROM.length() + 1; address++)
+  if (saveInEEPROM)
   {
-    byte value;
-    value = EEPROM.read(address);
-    SoftSerial.print(address);
-    SoftSerial.print("\t");
-    SoftSerial.print(value, DEC);
-    SoftSerial.println();
-    delay(50);
+    SoftSerial.println("Printing EEPROM");
+    for (int address = 0; address < EEPROM.length() + 1; address++)
+    {
+      byte value;
+      value = EEPROM.read(address);
+      SoftSerial.print(address);
+      SoftSerial.print("\t");
+      SoftSerial.print(value, DEC);
+      SoftSerial.println();
+      delay(50);
+    }
+    SoftSerial.println("Done printing EEPROM memory.");
   }
-  SoftSerial.println("Done printing EEPROM memory.");
 }
 
 void loop() {
