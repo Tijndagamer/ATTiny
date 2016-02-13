@@ -5,6 +5,15 @@
  * Made by: MrTijn/Tijndagamer
  * Important notes: This program has to be compiled with clock of 1MHz internal,
  * otherwise it does not work correctly.
+ *
+ * Wiring:
+ *                   ATTiny85
+ * -                1|       |8      5V
+ * ECHO on HC-SR04  2|       |7      -
+ * TRIG on HC-SR04  3|       |6      RX
+ * GND              4|       |5      TX
+ *
+ * Connect the Vcc and GND of the HC-SR04 to 5V and GND.
  */
 
 #define rxPin 0
@@ -23,7 +32,8 @@ void setup() {
 }
 
 void loop() {
-  long duration, distance;
+  double duration;
+  double distance;
 
   // Send the signal to start measuring
   digitalWrite(trigPin, LOW);
@@ -34,7 +44,6 @@ void loop() {
 
   duration = pulseIn(echoPin, HIGH);
   distance = (duration / 2) / 34.3;
-  soft.println(duration);
   soft.print(distance);
   soft.println(" cm");
   
