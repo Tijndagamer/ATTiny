@@ -1,5 +1,12 @@
 #include <SoftwareSerial.h>
 
+/*
+ * This program reads the measurements from a HC-SR04 and prints them out over serial.
+ * Made by: MrTijn/Tijndagamer
+ * Important notes: This program has to be compiled with clock of 1MHz internal,
+ * otherwise it does not work correctly.
+ */
+
 #define rxPin 0
 #define txPin 1
 #define trigPin 4
