@@ -3,6 +3,8 @@
 /*
  * This program reads the measurements from a HC-SR04 and prints them out over serial.
  * Made by: MrTijn/Tijndagamer
+ * Released under the MIT license.
+ * Copyright 2016
  * Important notes: This program has to be compiled with clock of 1MHz internal,
  * otherwise it does not work correctly.
  *

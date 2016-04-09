@@ -7,7 +7,7 @@
 SoftwareSerial SoftSerial(rxPin, txPin);
 
 int address = 0;
-byte value;
+//byte value;
 
 void setup() {
   pinMode(rxPin, INPUT);
@@ -19,12 +19,14 @@ void setup() {
   SoftSerial.println("Printing EEPROM");
   for (int address = 0; address < EEPROM.length() + 1; address++)
   {
-    value = EEPROM.read(address);
+    char value = EEPROM.read(address);
+
     SoftSerial.print(address);
     SoftSerial.print("\t");
-    SoftSerial.print(value, DEC);
+    //SoftSerial.print(value, DEC);
+    SoftSerial.print(value);
     SoftSerial.println();
-    delay(50);
+    delay(25);
   }
   SoftSerial.println("Done printing EEPROM memory.");
 }

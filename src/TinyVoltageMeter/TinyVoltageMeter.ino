@@ -1,13 +1,21 @@
 #include <SoftwareSerial.h>
 #include <EEPROM.h>
 
+/*
+ * This program uses the analog input of an ATTiny85 to estimate the voltage
+ * on the specified analog pin.
+ * Made by: MrTijn/Tijndagamer
+ * Released under the MIT license.
+ * Copyright 2016
+ */
+
 #define rxPin 0
 #define txPin 1
 #define analogIn 3 // Pin 4 is also an analog input pin.
 
 // Settings
 int inputVoltage = 3.3;
-boolean saveInEEPROM = true; // Saves raw analogVals divided by 4 in EEPROM.
+boolean saveInEEPROM = false; // Saves raw analogVals divided by 4 in EEPROM.
 
 double voltage, prevVoltage;
 int address = 0;
