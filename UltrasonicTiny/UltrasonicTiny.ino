@@ -31,6 +31,8 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
   soft.begin(9600);
+  soft.println("Starting UltrasonicTiny program.");
+  soft.println("Please note that the distance might not be completely accurate.");
 }
 
 void loop() {
