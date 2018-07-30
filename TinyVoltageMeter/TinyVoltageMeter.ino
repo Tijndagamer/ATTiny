@@ -14,7 +14,7 @@
 #define analogIn 3 // Pin 4 is also an analog input pin.
 
 // Settings
-int inputVoltage = 3.3;
+float inputVoltage = 3.3;
 boolean saveInEEPROM = false; // Saves raw analogVals divided by 4 in EEPROM.
 
 double voltage, prevVoltage;
